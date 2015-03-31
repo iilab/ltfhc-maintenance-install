@@ -6,10 +6,10 @@ Builds a maintenance virtual machine for LTFHC in order to:
  - Upgrade sotfware and configuration
 
 ## Prerequisite
-  * Virtual Box
-  * Vagrant 1.6.3+
-  * Putty
-  * Git
+  * Virtual Box 4.3.26
+  * Vagrant 1.7.2+
+  * Putty 0.64
+  * Git 1.9.5 http://git-scm.com/downloads
 
 ## Instructions
 
