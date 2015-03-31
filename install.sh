@@ -6,17 +6,12 @@ echo " Installing maintenance software."
 echo "--------------------------------------------------------------------"
 echo ""
 cd ~
-if [ ! [ -a ~/ltfhc-maintenance-install ] ]; then 
-  git clone https://github.com/iilab/ltfhc-maintenance-install.git
-fi
+[ ! -a ~/ltfhc-maintenance-install ] && git clone https://github.com/iilab/ltfhc-maintenance-install.git
 cd ltfhc-maintenance-install
-if [ ! [ -a ltfhc-maintenance ] ]; then 
-  git clone https://github.com/iilab/ltfhc-maintenance.git
-fi
-if [ ! [ -a ltfhc-config ] ]; then 
-  git clone https://github.com/iilab/ltfhc-config.git
-fi
-while [ ! [ -a ~/Downloads/ltfhc-maintenance.box ] ]; do
+[ ! -a ltfhc-maintenance ] && git clone https://github.com/iilab/ltfhc-maintenance.git
+[ ! -a ltfhc-config ] && git clone https://github.com/iilab/ltfhc-config.git
+
+while [ ! -a ~/Downloads/ltfhc-maintenance.box ]; do
   echo ""
   echo "--------------------------------------------------------------------"
   echo "File ltfhc-maintenance.box doesn't exist in Downloads folder."
