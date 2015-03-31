@@ -1,29 +1,29 @@
 #!/bin/bash
 
 echo ""
-echo "----------------------------------"
+echo "--------------------------------------------------------------------"
 echo " Installing maintenance software."
-echo "----------------------------------"
+echo "--------------------------------------------------------------------"
 echo ""
 cd ~
-if [ -a ~/ltfhc-maintenance-install ]; then 
+if [ ! [ -a ~/ltfhc-maintenance-install ] ]; then 
   git clone https://github.com/iilab/ltfhc-maintenance-install.git
 fi
 cd ltfhc-maintenance-install
-if [ -a ~/ltfhc-maintenance-install ]; then 
+if [ ! [ -a ltfhc-maintenance ] ]; then 
   git clone https://github.com/iilab/ltfhc-maintenance.git
 fi
-if [ -a ~/ltfhc-maintenance-install ]; then 
+if [ ! [ -a ltfhc-config ] ]; then 
   git clone https://github.com/iilab/ltfhc-config.git
 fi
-while [ ! [-a ~/Downloads/ltfhc-maintenance.box] ]; do
+while [ ! [ -a ~/Downloads/ltfhc-maintenance.box ] ]; do
   echo ""
-  echo "----------------------------------"
+  echo "--------------------------------------------------------------------"
   echo "File ltfhc-maintenance.box doesn't exist in Downloads folder."
   echo "This file is large (>200MB) and will take a long time to transfer,"
   echo "if you have this file on portable media, please copy it to the"
   echo "Downloads folder and make sure it is named ltfhc-maintenance.box"
-  echo "-----"
+  echo "----------------------------------"
   echo ""
   echo "Would you like to download this file?"
   echo ""
@@ -43,21 +43,21 @@ while [ ! [-a ~/Downloads/ltfhc-maintenance.box] ]; do
 done
 if [ -a ~/Downloads/ltfhc-maintenance.box ]; then
   echo ""
-  echo "----------------------------------"
+  echo "--------------------------------------------------------------------"
   echo "Found ltfhc-maintenance.box!"
-  echo "----------------------------------"
+  echo "--------------------------------------------------------------------"
   echo ""
 else
   echo ""
-  echo "----------------------------------"
+  echo "--------------------------------------------------------------------"
   echo "Missing ltfhc-maintenance.box, the maintenance software will not work."
-  echo "----------------------------------"
+  echo "--------------------------------------------------------------------"
   echo ""
 fi
 echo ""
-echo "----------------------------------"
+echo "--------------------------------------------------------------------"
 echo "Starting virtual machine."
-echo "----------------------------------"
+echo "--------------------------------------------------------------------"
 echo ""
 vagrant add box "~/Downloads/ltfhc-maintenance.box"
 vagrant up
