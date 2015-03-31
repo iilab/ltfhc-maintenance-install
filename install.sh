@@ -2,10 +2,10 @@
 
 echo "Downloading maintenance software."
 cd ~
-git pull https://github.com/iilab/ltfhc-maintenance-install.git
+git clone https://github.com/iilab/ltfhc-maintenance-install.git
 cd ltfhc-maintenance-install
-git pull https://github.com/iilab/ltfhc-maintenance.git
-git pull https://github.com/iilab/ltfhc-config.git
+git clone https://github.com/iilab/ltfhc-maintenance.git
+git clone https://github.com/iilab/ltfhc-config.git
 while [ ! [-a ~/Downloads/ltfhc-maintenance.box] ]; do
     echo "File ltfhc-maintenance.box doesn't exist in Downloads folder."
     echo "This file is large (>200MB) and will take a long time to transfer,"
