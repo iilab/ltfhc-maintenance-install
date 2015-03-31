@@ -13,7 +13,7 @@ cd ltfhc-maintenance-install
 [ ! -e ltfhc-maintenance ] && git clone https://github.com/iilab/ltfhc-maintenance.git
 [ ! -e ltfhc-config ] && git clone https://github.com/iilab/ltfhc-config.git
 
-while [ ! -e ~/Downloads/ltfhc-maintenance.box ]; do
+while [[ ! -n $(find ~/Downloads/ltfhc-maintenance -size 400000k) ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
   echo "File ltfhc-maintenance.box doesn't exist in Downloads folder."

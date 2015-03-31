@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "https://download.iilab.org/ltfhc/ltfhc-maintenance.box"
+  config.vm.box = "ltfhc-maintenance"
   config.vm.network "public_network", ip: "192.168.168.100", bridge: 'en0: Ethernet'
   config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
