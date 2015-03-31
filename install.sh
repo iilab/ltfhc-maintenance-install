@@ -1,17 +1,19 @@
 #!/bin/bash
-
+clear
 echo ""
 echo "--------------------------------------------------------------------"
+echo ""
 echo " Installing maintenance software."
+echo ""
 echo "--------------------------------------------------------------------"
 echo ""
 cd ~
-[ ! -a ~/ltfhc-maintenance-install ] && git clone https://github.com/iilab/ltfhc-maintenance-install.git
+[ ! -e ~/ltfhc-maintenance-install ] && git clone https://github.com/iilab/ltfhc-maintenance-install.git
 cd ltfhc-maintenance-install
-[ ! -a ltfhc-maintenance ] && git clone https://github.com/iilab/ltfhc-maintenance.git
-[ ! -a ltfhc-config ] && git clone https://github.com/iilab/ltfhc-config.git
+[ ! -e ltfhc-maintenance ] && git clone https://github.com/iilab/ltfhc-maintenance.git
+[ ! -e ltfhc-config ] && git clone https://github.com/iilab/ltfhc-config.git
 
-while [ ! -a ~/Downloads/ltfhc-maintenance.box ]; do
+while [ ! -e ~/Downloads/ltfhc-maintenance.box ]; do
   echo ""
   echo "--------------------------------------------------------------------"
   echo "File ltfhc-maintenance.box doesn't exist in Downloads folder."
@@ -36,7 +38,7 @@ while [ ! -a ~/Downloads/ltfhc-maintenance.box ]; do
       ;;
   esac
 done
-if [ -a ~/Downloads/ltfhc-maintenance.box ]; then
+if [[ -n $(find ~/Downloads/ltfhc-maintenance -size 400000k) ]]; then
   echo ""
   echo "--------------------------------------------------------------------"
   echo "Found ltfhc-maintenance.box!"
@@ -45,7 +47,7 @@ if [ -a ~/Downloads/ltfhc-maintenance.box ]; then
 else
   echo ""
   echo "--------------------------------------------------------------------"
-  echo "Missing ltfhc-maintenance.box, the maintenance software will not work."
+  echo "Missing or incomplete ltfhc-maintenance.box, please download again. "
   echo "--------------------------------------------------------------------"
   echo ""
 fi
