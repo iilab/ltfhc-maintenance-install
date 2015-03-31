@@ -50,13 +50,14 @@ else
   echo "Missing or incomplete ltfhc-maintenance.box, please download again. "
   echo "--------------------------------------------------------------------"
   echo ""
+  exit 1
 fi
 echo ""
 echo "--------------------------------------------------------------------"
 echo "Starting virtual machine."
 echo "--------------------------------------------------------------------"
 echo ""
-vagrant add box "~/Downloads/ltfhc-maintenance.box"
+vagrant box add "~/Downloads/ltfhc-maintenance.box"
 vagrant up
 echo ""
 echo ""
