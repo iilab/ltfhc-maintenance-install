@@ -13,20 +13,20 @@ cd ltfhc-maintenance-install
 if [ ! -e ltfhc-maintenance ]; then
    git clone https://github.com/iilab/ltfhc-maintenance.git
 else
-   cd ~/ltfhc-maintenance;
+   cd ~/ltfhc-maintenance-install/ltfhc-maintenance;
    git pull;
 fi
 if [ ! -e ltfhc-config ]; then
    git clone https://github.com/iilab/ltfhc-config.git
 else
-   cd ~/ltfhc-config
+   cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
 fi
 while [[ ! -n $(find ~/Downloads/ltfhc-maintenance -size 400000k) ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
   echo "File ltfhc-maintenance.box doesn't exist in Downloads folder."
-  echo "This file is large (>200MB) and will take a long time to transfer,"
+  echo "This file is large (>400MB) and will take a long time to transfer,"
   echo "if you have this file on portable media, please copy it to the"
   echo "Downloads folder and make sure it is named ltfhc-maintenance.box"
   echo "----------------------------------"
@@ -62,6 +62,12 @@ else
   read -n 1 -s
   exit 1
 fi
+echo ""
+echo "--------------------------------------------------------------------"
+echo "Looking up host machine network configuration."
+echo "--------------------------------------------------------------------"
+echo ""
+/C/Program \Files/Oracle/VirtualBox/VBoxManage.exe list bridgedifs
 echo ""
 echo "--------------------------------------------------------------------"
 echo "Starting virtual machine."
