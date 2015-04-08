@@ -10,9 +10,18 @@ echo ""
 cd ~
 [ ! -e ~/ltfhc-maintenance-install ] && git clone https://github.com/iilab/ltfhc-maintenance-install.git
 cd ltfhc-maintenance-install
-[ ! -e ltfhc-maintenance ] && git clone https://github.com/iilab/ltfhc-maintenance.git
-[ ! -e ltfhc-config ] && git clone https://github.com/iilab/ltfhc-config.git
-
+if [ ! -e ltfhc-maintenance ]; then
+   git clone https://github.com/iilab/ltfhc-maintenance.git
+else
+   cd ~/ltfhc-maintenance;
+   git pull;
+fi
+if [ ! -e ltfhc-config ]; then
+   git clone https://github.com/iilab/ltfhc-config.git
+else
+   cd ~/ltfhc-config
+   git pull;
+fi
 while [[ ! -n $(find ~/Downloads/ltfhc-maintenance -size 400000k) ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
@@ -50,6 +59,7 @@ else
   echo "Missing or incomplete ltfhc-maintenance.box, please download again. "
   echo "--------------------------------------------------------------------"
   echo ""
+  read -n 1 -s
   exit 1
 fi
 echo ""
@@ -61,9 +71,22 @@ vagrant box add "~/Downloads/ltfhc-maintenance.box"
 vagrant up
 echo ""
 echo ""
+echo "--------------------------------------------------------------------"
+echo "Testing installation."
+echo "--------------------------------------------------------------------"
 echo ""
-echo "----------------------------------"
-echo "Installation complete. Press a key to exit."
-echo "----------------------------------"
+
+echo ""
+echo "--------------------------------------------------------------------"
+echo ""
+echo "Installation complete."
+echo ""
+echo "To run the program, double-click on the ltfhc-maintenance shortcut"
+echo "on the Desktop."
+echo ""
+echo "Press a key to exit."
+echo ""
+echo "--------------------------------------------------------------------"
 echo ""
 read -n 1 -s
+exit 0
