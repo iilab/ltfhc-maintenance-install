@@ -22,7 +22,7 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
 fi
-while [[ ! -n $(find ~/Downloads/ltfhc-maintenance -size 400000k) ]]; do
+while [[ ! -n $(find ~/Downloads/ltfhc-maintenance.box -size 400000k) ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
   echo "File ltfhc-maintenance.box doesn't exist in Downloads folder."
@@ -34,6 +34,7 @@ while [[ ! -n $(find ~/Downloads/ltfhc-maintenance -size 400000k) ]]; do
   echo "Would you like to download this file?"
   echo ""
   read -p "y(es)/n(o)/r(etry)? " -n 1 answer
+  echo ""
   case $answer in
     y)
       curl -o ~/Downloads/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
