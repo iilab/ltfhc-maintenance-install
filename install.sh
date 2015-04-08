@@ -52,7 +52,7 @@ while [[ `md5sum.exe ~/Downloads/ltfhc-maintenance.box | awk '{split($0,array," 
       ;;
   esac
 done
-if [[ -n $(find ~/Downloads/ltfhc-maintenance -size 400000k) ]]; then
+if [[ `md5sum.exe ~/Downloads/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 8d646c80eb3800a679805a53e301751d ]]; then
   echo ""
   echo "--------------------------------------------------------------------"
   echo "Found ltfhc-maintenance.box!"
