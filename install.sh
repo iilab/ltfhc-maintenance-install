@@ -1,9 +1,12 @@
 #!/bin/bash
+#
+# This script is meant to be ran under the Git for Windows bash shell command line.
+#
 clear
 echo ""
 echo "--------------------------------------------------------------------"
 echo ""
-echo " Installing maintenance software."
+echo " Installing LTFHC EMR maintenance software."
 echo ""
 echo "--------------------------------------------------------------------"
 echo ""
@@ -22,10 +25,11 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
 fi
-while [[ ! -n $(find ~/Downloads/ltfhc-maintenance.box -size 400000k) ]]; do
+while [[ `md5sum.exe ~/Downloads/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
-  echo "File ltfhc-maintenance.box doesn't exist in Downloads folder."
+  echo "Problem with ltfhc-maintenance.box in Downloads folder."
+  echo ""
   echo "This file is large (>400MB) and will take a long time to transfer,"
   echo "if you have this file on portable media, please copy it to the"
   echo "Downloads folder and make sure it is named ltfhc-maintenance.box"
