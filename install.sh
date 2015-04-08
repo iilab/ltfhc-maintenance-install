@@ -37,7 +37,7 @@ while [[ ! -n $(find ~/Downloads/ltfhc-maintenance.box -size 400000k) ]]; do
   echo ""
   case $answer in
     y)
-      curl -o ~/Downloads/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
+      curl --progress-bar -o ~/Downloads/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
       continue
       ;;
     n)
