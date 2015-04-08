@@ -72,13 +72,15 @@ echo "--------------------------------------------------------------------"
 echo "Looking up host machine network configuration."
 echo "--------------------------------------------------------------------"
 echo ""
-/C/Program \Files/Oracle/VirtualBox/VBoxManage.exe list bridgedifs
+bridges=`/C/Program \Files/Oracle/VirtualBox/VBoxManage.exe list bridgedifs`
+echo $bridges
 echo ""
 echo "--------------------------------------------------------------------"
 echo "Starting virtual machine."
 echo "--------------------------------------------------------------------"
 echo ""
-vagrant box add "~/Downloads/ltfhc-maintenance.box"
+cd ~/ltfhc-maintenance-install
+vagrant box add "~/Downloads/ltfhc-maintenance.box" --name ltfhc-maintenance
 vagrant up
 echo ""
 echo ""
