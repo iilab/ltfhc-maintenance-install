@@ -16,7 +16,7 @@ Builds a maintenance virtual machine for LTFHC in order to:
 ### Preparing the maintenance environment
 
  - Prerequisite: Download and install Virtual Box, Vagrant, Putty and Git.
- - Install: Run install.bat file, which will:
+ - Install: Run install.sh file, which will:
      * Download vagrant box (which includes ansible, ltfhc-maintenance and ltfhc-config)
      * Download (Git pull) the latest versions of ```ltfhc-maintenance``` and ```ltfhc-config```.
 

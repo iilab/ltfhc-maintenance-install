@@ -4,18 +4,24 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+# Possible public network approach if NAT doesn't work
+# VM_PUBLIC_IP = shell("ipconfig getpacket #{HOST_INTERFACE} | awk '/^subnet_mask/ {print $3}'") || '192.168.168.100'
+# VM_BRIDGE = shell("ipconfig getpacket #{HOST_INTERFACE} | awk '/^subnet_mask/ {print $3}'") || 'en0: Ethernet'
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  # Every Vagrant virtual environment requires a box to build off of.
+  #config.vm.box = "ffuenf/debian-7.7.0-amd64"
   config.vm.box = "ltfhc-maintenance"
-  config.vm.network "public_network", ip: "192.168.168.100", bridge: 'en0: Ethernet'
-  config.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
-  end
-
+  
+  #Try default network config i.e. host_only NAT.
+  #config.vm.network "public_network", ip: VM_PUBLIC_IP, bridge: VM_BRIDGE
+  #config.vm.provider :virtualbox do |vb|
+  #    vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+  #end
+  
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
