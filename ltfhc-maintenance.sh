@@ -7,7 +7,7 @@ echo ""
 echo "--------------------------------------------------------------------"
 cd ~/ltfhc-maintenance-install
 vagrant up
-vagrant ssh -- -t node /vagrant/ltfhc-maintenance/index.js
+vagrant ssh --command "node /vagrant/ltfhc-maintenance/index.js"
 echo "--------------------------------------------------------------------"
 echo ""
 echo "LTFHC EMR Maintenance program exited."
