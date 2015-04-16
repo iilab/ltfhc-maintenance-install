@@ -34,6 +34,13 @@ else
 fi
 echo ""
 echo "--------------------------------------------------------------------"
+echo "Updating desktop shortcut."
+echo "--------------------------------------------------------------------"
+echo ""
+ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh
+echo ""
+echo ""
+echo "--------------------------------------------------------------------"
 echo ""
 echo "Update complete."
 echo ""
