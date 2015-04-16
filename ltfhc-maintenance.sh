@@ -1,4 +1,5 @@
 #!bin/bash
+clear
 echo "--------------------------------------------------------------------"
 echo ""
 echo "LTFHC EMR Maintenance program starting."

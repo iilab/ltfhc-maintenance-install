@@ -23,6 +23,7 @@ if [ ! -e ltfhc-config ]; then
 else
    cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
+fi
 echo ""
 echo "--------------------------------------------------------------------"
 echo ""
