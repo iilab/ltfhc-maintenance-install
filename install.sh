@@ -85,10 +85,10 @@ vagrant up
 echo ""
 echo ""
 echo "--------------------------------------------------------------------"
-echo "Testing installation."
+echo "Installing desktop shortcut."
 echo "--------------------------------------------------------------------"
 echo ""
-
+ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh
 echo ""
 echo "--------------------------------------------------------------------"
 echo ""
