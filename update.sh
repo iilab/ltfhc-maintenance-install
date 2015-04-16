@@ -11,15 +11,23 @@ echo ""
 echo "--------------------------------------------------------------------"
 echo ""
 cd ~
-cd ltfhc-maintenance-install
+if [ ! -e ltfhc-maintenance-install ]; then
+   echo "Error please run the installation script before attempting to update.";
+   exit 1;
+else
+   cd ~/ltfhc-maintenance-install;
+   git pull;
+fi
 if [ ! -e ltfhc-maintenance ]; then
-   git clone https://github.com/iilab/ltfhc-maintenance.git
+   echo "Error please run the installation script before attempting to update.";
+   exit 1;
 else
    cd ~/ltfhc-maintenance-install/ltfhc-maintenance;
    git pull;
 fi
 if [ ! -e ltfhc-config ]; then
-   git clone https://github.com/iilab/ltfhc-config.git
+   echo "Error please run the installation script before attempting to update.";
+   exit 1;
 else
    cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
