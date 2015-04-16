@@ -37,7 +37,13 @@ echo "--------------------------------------------------------------------"
 echo "Updating desktop shortcut."
 echo "--------------------------------------------------------------------"
 echo ""
-ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh
+if [ ! -e ~/Desktop/ltfhc-maintenance.sh ]; then
+   echo "Error please run the installation script before attempting to update.";
+   exit 1;
+else
+   rm ~/Desktop/ltfhc-maintenance.sh;
+   ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
+fi
 echo ""
 echo ""
 echo "--------------------------------------------------------------------"
