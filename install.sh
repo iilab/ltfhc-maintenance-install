@@ -12,19 +12,22 @@ echo "--------------------------------------------------------------------"
 echo ""
 cd ~
 [ ! -e ~/ltfhc-maintenance-install ] && git clone https://github.com/iilab/ltfhc-maintenance-install.git
-cd ltfhc-maintenance-install
+cd ~/ltfhc-maintenance-install
 if [ ! -e ltfhc-maintenance ]; then
+   cd ltfhc-maintenance-install
    git clone https://github.com/iilab/ltfhc-maintenance.git
 else
    cd ~/ltfhc-maintenance-install/ltfhc-maintenance;
    git pull;
 fi
+cd ~/ltfhc-maintenance-install
 if [ ! -e ltfhc-config ]; then
    git clone https://github.com/iilab/ltfhc-config.git
 else
    cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
 fi
+cd ~/ltfhc-maintenance-install
 if [ ! -e ltfhc-next ]; then
    git clone --single-branch -b v0.5.0-alpha https://github.com/iilab/ltfhc-next.git
 else
