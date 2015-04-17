@@ -76,20 +76,20 @@ else
   read -n 1 -s
   exit 1
 fi
-echo ""
-echo "--------------------------------------------------------------------"
-echo "Looking up host machine network configuration."
-echo "--------------------------------------------------------------------"
-echo ""
-bridges=`/C/Program \Files/Oracle/VirtualBox/VBoxManage.exe list bridgedifs`
-echo $bridges
-echo ""
+#echo ""
+#echo "--------------------------------------------------------------------"
+#echo "Looking up host machine network configuration."
+#echo "--------------------------------------------------------------------"
+#echo ""
+#bridges=`/C/Program \Files/Oracle/VirtualBox/VBoxManage.exe list bridgedifs`
+#echo $bridges
+#echo ""
 echo "--------------------------------------------------------------------"
 echo "Starting virtual machine."
 echo "--------------------------------------------------------------------"
 echo ""
 cd ~/ltfhc-maintenance-install
-vagrant box add "~/ltfhc-maintenance-install/ltfhc-maintenance.box" --name ltfhc-maintenance
+vagrant box add "~/ltfhc-maintenance-install/ltfhc-maintenance.box" --force --name ltfhc-maintenance
 vagrant up
 echo ""
 echo ""
@@ -97,7 +97,12 @@ echo "--------------------------------------------------------------------"
 echo "Installing desktop shortcut."
 echo "--------------------------------------------------------------------"
 echo ""
-ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh
+if [ ! -e ~/Desktop/ltfhc-maintenance.sh ]; then
+   ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
+else
+   rm ~/Desktop/ltfhc-maintenance.sh;
+   ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
+fi
 echo ""
 echo "--------------------------------------------------------------------"
 echo ""

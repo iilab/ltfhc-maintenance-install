@@ -17,6 +17,7 @@ if [ ! -e $MAINTENANCE_HOME/kansorc ]; then
   echo ""
   echo "--------------------------------------------------------------------"
   echo ""
+  read -n 1 -s
   exit 1
 else 
   if [ ! -e $MAINTENANCE_HOME/ltfhc-next/.kansorc ]; then
@@ -32,6 +33,7 @@ if [ ! -e $MAINTENANCE_HOME/hosts_lan ] && [ ! -e $MAINTENANCE_HOME/hosts_wifi ]
   echo ""
   echo "--------------------------------------------------------------------"
   echo ""
+  read -n 1 -s
   exit 1
 fi
 vagrant up
