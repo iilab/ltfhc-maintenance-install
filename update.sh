@@ -32,6 +32,13 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
 fi
+if [ ! -e ltfhc-next ]; then
+   echo "Error please run the installation script before attempting to update.";
+   exit 1;
+else
+   cd ~/ltfhc-maintenance-install/ltfhc-next
+   git pull;
+fi
 echo ""
 echo "--------------------------------------------------------------------"
 echo "Updating desktop shortcut."

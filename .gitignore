@@ -1,3 +1,9 @@
 .vagrant
 ltfhc-maintenance
 ltfhc-config
+ltfhc-next
+hosts_*
+kansorc
+*.json
+*.zip
+*.log

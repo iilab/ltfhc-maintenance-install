@@ -25,14 +25,20 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
 fi
-while [[ `md5sum.exe ~/Downloads/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
+if [ ! -e ltfhc-next ]; then
+   git clone --single-branch -b v0.5.0-alpha https://github.com/iilab/ltfhc-next.git
+else
+   cd ~/ltfhc-maintenance-install/ltfhc-next
+   git pull;
+fi
+while [[ `md5sum.exe ~/ltfhc-maintenance-install/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
-  echo "Problem with ltfhc-maintenance.box in Downloads folder."
+  echo "Problem with ltfhc-maintenance.box in ltfhc-maintenance-install folder."
   echo ""
   echo "This file is large (>400MB) and will take a long time to transfer,"
   echo "if you have this file on portable media, please copy it to the"
-  echo "Downloads folder and make sure it is named ltfhc-maintenance.box"
+  echo "ltfhc-maintenance-install folder and make sure it is named ltfhc-maintenance.box"
   echo "----------------------------------"
   echo ""
   echo "Would you like to download this file?"
@@ -41,7 +47,7 @@ while [[ `md5sum.exe ~/Downloads/ltfhc-maintenance.box | awk '{split($0,array," 
   echo ""
   case $answer in
     y)
-      curl --progress-bar -o ~/Downloads/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
+      curl --progress-bar -o ~/ltfhc-maintenance-install/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
       continue
       ;;
     n)
@@ -52,7 +58,7 @@ while [[ `md5sum.exe ~/Downloads/ltfhc-maintenance.box | awk '{split($0,array," 
       ;;
   esac
 done
-if [[ `md5sum.exe ~/Downloads/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 8d646c80eb3800a679805a53e301751d ]]; then
+if [[ `md5sum.exe ~/ltfhc-maintenance-install/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 8d646c80eb3800a679805a53e301751d ]]; then
   echo ""
   echo "--------------------------------------------------------------------"
   echo "Found ltfhc-maintenance.box!"
@@ -80,7 +86,7 @@ echo "Starting virtual machine."
 echo "--------------------------------------------------------------------"
 echo ""
 cd ~/ltfhc-maintenance-install
-vagrant box add "~/Downloads/ltfhc-maintenance.box" --name ltfhc-maintenance
+vagrant box add "~/ltfhc-maintenance-install/ltfhc-maintenance.box" --name ltfhc-maintenance
 vagrant up
 echo ""
 echo ""
