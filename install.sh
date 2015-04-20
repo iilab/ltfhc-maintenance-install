@@ -114,7 +114,7 @@ echo "Starting virtual machine."
 echo "--------------------------------------------------------------------"
 echo ""
 cd ~/ltfhc-maintenance-install
-vagrant box add "~/ltfhc-maintenance-install/ltfhc-maintenance.box" --force --name ltfhc-maintenance
+vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
 vagrant up
 echo ""
 echo ""
