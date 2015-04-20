@@ -11,6 +11,31 @@ echo ""
 echo "--------------------------------------------------------------------"
 echo ""
 cd ~
+if [ ! -e ~/ltfhc-maintenance-install/kansorc.txt ]; then
+  echo "--------------------------------------------------------------------"
+  echo ""
+  echo "ERROR: kansorc.txt file missing in the ltfhc-maintenance-install directory."
+  echo ""
+  echo "Copy the file and restart this script. Press a key to exit."
+  echo ""
+  echo "--------------------------------------------------------------------"
+  echo ""
+  read -n 1 -s
+  exit 1
+fi
+if [ ! -e $MAINTENANCE_HOME/hosts_lan.txt ] && [ ! -e $MAINTENANCE_HOME/hosts_wifi.txt ]; then
+  echo "--------------------------------------------------------------------"
+  echo ""
+  echo "ERROR: hosts_lan.txt and hosts_wifi.txt files missing in the ltfhc-maintenance-install directory."
+  echo ""
+  echo "Copy the files and restart this script. Press a key to exit."
+  echo ""
+  echo "--------------------------------------------------------------------"
+  echo ""
+  read -n 1 -s
+  exit 1
+fi
+
 [ ! -e ~/ltfhc-maintenance-install ] && git clone https://github.com/iilab/ltfhc-maintenance-install.git
 cd ~/ltfhc-maintenance-install
 if [ ! -e ltfhc-maintenance ]; then
@@ -34,6 +59,7 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-next
    git pull;
 fi
+cp ~/ltfhc-maintenance-install/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
 while [[ `md5sum.exe ~/ltfhc-maintenance-install/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
   echo ""
   echo "--------------------------------------------------------------------"

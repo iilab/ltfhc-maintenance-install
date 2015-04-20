@@ -19,10 +19,6 @@ if [ ! -e $MAINTENANCE_HOME/kansorc ]; then
   echo ""
   read -n 1 -s
   exit 1
-else 
-  if [ ! -e $MAINTENANCE_HOME/ltfhc-next/.kansorc ]; then
-    cp $MAINTENANCE_HOME/kansorc $MAINTENANCE_HOME/ltfhc-next/.kansorc
-  fi
 fi
 if [ ! -e $MAINTENANCE_HOME/hosts_lan ] && [ ! -e $MAINTENANCE_HOME/hosts_wifi ]; then
   echo "--------------------------------------------------------------------"

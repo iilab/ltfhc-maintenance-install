@@ -3,7 +3,7 @@ ltfhc-maintenance
 ltfhc-config
 ltfhc-next
 hosts_*
-kansorc
+kansorc*
 *.json
 *.zip
 *.log
