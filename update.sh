@@ -63,6 +63,7 @@ while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," 
   case $answer in
     y)
       curl --progress-bar -o ~/Documents/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
+      NEW_UPDATE=true;
       continue
       ;;
     n)
@@ -79,13 +80,16 @@ if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")}
   echo "Found up to date ltfhc-maintenance.box!"
   echo "--------------------------------------------------------------------"
   echo ""
-  echo "--------------------------------------------------------------------"
-  echo "Reloading virtual machine."
-  echo "--------------------------------------------------------------------"
-  echo ""
   cd ~/ltfhc-maintenance-install
-  vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
-  vagrant reload
+  if [ "$MAINTENANCE_HOME" = "" ]; then
+    echo ""
+    echo "--------------------------------------------------------------------"
+    echo "Updated, reloading virtual machine."
+    echo "--------------------------------------------------------------------"
+    echo ""
+    vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
+    vagrant reload
+  fi
 else
   echo ""
   echo "--------------------------------------------------------------------"
