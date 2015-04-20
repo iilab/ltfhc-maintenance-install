@@ -20,6 +20,7 @@ if [ ! -e ~/Documents/kansorc ]; then
   echo ""
   read -n 1 -s
   exit 1
+fi
 cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
 if [ ! -e ~/Documents/hosts_lan.txt ] && [ ! -e ~/Documents/hosts_wifi.txt ]; then
   echo "--------------------------------------------------------------------"

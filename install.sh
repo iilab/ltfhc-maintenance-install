@@ -35,7 +35,6 @@ if [ ! -e ~/Documents/hosts_lan.txt ] && [ ! -e ~/Documents/hosts_wifi.txt ]; th
   read -n 1 -s
   exit 1
 fi
-
 [ ! -e ~/ltfhc-maintenance-install ] && git clone https://github.com/iilab/ltfhc-maintenance-install.git
 cd ~/ltfhc-maintenance-install
 if [ ! -e ltfhc-maintenance ]; then
