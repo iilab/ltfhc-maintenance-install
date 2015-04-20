@@ -60,7 +60,7 @@ fi
 cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
 cp ~/Documents/hosts_wifi.txt ~/ltfhc-maintenance-install/hosts_wifi
 cp ~/Documents/hosts_lan.txt ~/ltfhc-maintenance-install/hosts_lan
-while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
+while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 3521673da9b3cd0710ffc51cde055be8 ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
   echo "Problem with ltfhc-maintenance.box in Documents folder."
@@ -87,7 +87,7 @@ while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," 
       ;;
   esac
 done
-if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 8d646c80eb3800a679805a53e301751d ]]; then
+if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 3521673da9b3cd0710ffc51cde055be8 ]]; then
   echo ""
   echo "--------------------------------------------------------------------"
   echo "Found ltfhc-maintenance.box!"

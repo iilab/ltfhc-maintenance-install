@@ -12,7 +12,7 @@ cd $MAINTENANCE_HOME
 if [ ! -e ~/Documents/kansorc.txt ]; then
   echo "--------------------------------------------------------------------"
   echo ""
-  echo "ERROR: kansorc file missing in the Documents folder."
+  echo "ERROR: kansorc.txt file missing in the Documents folder."
   echo ""
   echo "Copy the file and restart this script. Press a key to exit."
   echo ""
@@ -21,7 +21,7 @@ if [ ! -e ~/Documents/kansorc.txt ]; then
   read -n 1 -s
   exit 1
 fi
-cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
+cp ~/Documents/kansorc.txt $MAINTENANCE_HOME/ltfhc-next/.kansorc
 if [ ! -e ~/Documents/hosts_lan.txt ] && [ ! -e ~/Documents/hosts_wifi.txt ]; then
   echo "--------------------------------------------------------------------"
   echo ""
@@ -34,8 +34,8 @@ if [ ! -e ~/Documents/hosts_lan.txt ] && [ ! -e ~/Documents/hosts_wifi.txt ]; th
   read -n 1 -s
   exit 1
 fi
-cp ~/Documents/hosts_wifi.txt ~/ltfhc-maintenance-install/hosts_wifi
-cp ~/Documents/hosts_lan.txt ~/ltfhc-maintenance-install/hosts_lan
+cp ~/Documents/hosts_wifi.txt $MAINTENANCE_HOME/hosts_wifi
+cp ~/Documents/hosts_lan.txt $MAINTENANCE_HOME/hosts_lan
 vagrant up
 vagrant ssh --command "node '/vagrant/ltfhc-maintenance/index.js'" 
 echo "--------------------------------------------------------------------"
