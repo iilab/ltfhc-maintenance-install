@@ -77,7 +77,7 @@ done
 if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 8d646c80eb3800a679805a53e301751d ]]; then
   echo ""
   echo "--------------------------------------------------------------------"
-  echo "Found uptodate ltfhc-maintenance.box!"
+  echo "Found up to date ltfhc-maintenance.box!"
   echo "--------------------------------------------------------------------"
   echo ""
   echo "--------------------------------------------------------------------"
@@ -103,7 +103,7 @@ echo "--------------------------------------------------------------------"
 echo ""
 rm ~/Desktop/ltfhc-maintenance.sh;
 ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
-cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/update.sh
+cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/ltfhc-update.sh
 cp ~/ltfhc-maintenance-install/install.sh ~/Desktop/install.sh
 echo ""
 echo ""
