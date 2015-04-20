@@ -37,7 +37,7 @@ fi
 cp ~/Documents/hosts_wifi.txt $MAINTENANCE_HOME/hosts_wifi
 cp ~/Documents/hosts_lan.txt $MAINTENANCE_HOME/hosts_lan
 vagrant up
-vagrant ssh --command "node '/vagrant/ltfhc-maintenance/index.js'" 
+vagrant ssh --command "DEBUG=$DEBUG node '/vagrant/ltfhc-maintenance/index.js'" 
 echo "--------------------------------------------------------------------"
 echo ""
 echo "LTFHC EMR Maintenance program exited."
