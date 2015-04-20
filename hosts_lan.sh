@@ -1,2 +1,2 @@
 #!/bin/bash
-cat hosts_lan
+cat /vagrant/hosts_lan

@@ -1,2 +1,2 @@
 #!/bin/bash
-cat hosts_wifi
+cat /vagrant/hosts_wifi
