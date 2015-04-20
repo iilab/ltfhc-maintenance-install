@@ -5,7 +5,7 @@ echo ""
 echo "LTFHC EMR Maintenance program starting."
 echo ""
 echo "--------------------------------------------------------------------"
-if [ "$MAINTENANCE_HOME" = "" ]
+if [ "$MAINTENANCE_HOME" = "" ] then;
   MAINTENANCE_HOME=~/ltfhc-maintenance-install  
 fi
 cd $MAINTENANCE_HOME
