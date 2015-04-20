@@ -27,6 +27,7 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-maintenance;
    git pull;
 fi
+cd ~/ltfhc-maintenance-install;
 if [ ! -e ltfhc-config ]; then
    echo "Error please run the installation script before attempting to update.";
    read -n 1 -s
@@ -35,6 +36,7 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-config
    git pull;
 fi
+cd ~/ltfhc-maintenance-install;   
 if [ ! -e ltfhc-next ]; then
    echo "Error please run the installation script before attempting to update.";
    read -n 1 -s
