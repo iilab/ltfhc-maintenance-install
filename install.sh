@@ -119,14 +119,16 @@ vagrant up
 echo ""
 echo ""
 echo "--------------------------------------------------------------------"
-echo "Installing desktop shortcut."
+echo "Installing desktop shortcuts."
 echo "--------------------------------------------------------------------"
 echo ""
 if [ ! -e ~/Desktop/ltfhc-maintenance.sh ]; then
    ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
+   cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/update.sh
 else
    rm ~/Desktop/ltfhc-maintenance.sh;
    ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
+   cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/ltfhc-maintenance-update.sh
 fi
 echo ""
 echo "--------------------------------------------------------------------"

@@ -55,6 +55,7 @@ if [ ! -e ~/Desktop/ltfhc-maintenance.sh ]; then
 else
    rm ~/Desktop/ltfhc-maintenance.sh;
    ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
+   cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/update.sh
 fi
 echo ""
 echo ""
