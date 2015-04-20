@@ -2,7 +2,8 @@
 ltfhc-maintenance
 ltfhc-config
 ltfhc-next
-hosts_*
+hosts_lan
+hosts_wifi
 kansorc*
 *.json
 *.zip
