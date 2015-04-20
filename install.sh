@@ -39,7 +39,6 @@ fi
 [ ! -e ~/ltfhc-maintenance-install ] && git clone https://github.com/iilab/ltfhc-maintenance-install.git
 cd ~/ltfhc-maintenance-install
 if [ ! -e ltfhc-maintenance ]; then
-   cd ltfhc-maintenance-install
    git clone https://github.com/iilab/ltfhc-maintenance.git
 else
    cd ~/ltfhc-maintenance-install/ltfhc-maintenance;
@@ -87,7 +86,7 @@ while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," 
       ;;
   esac
 done
-if [[ `md5sum.exe ~/ltfhc-maintenance-install/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 8d646c80eb3800a679805a53e301751d ]]; then
+if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 8d646c80eb3800a679805a53e301751d ]]; then
   echo ""
   echo "--------------------------------------------------------------------"
   echo "Found ltfhc-maintenance.box!"

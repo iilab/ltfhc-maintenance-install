@@ -5,8 +5,8 @@ echo ""
 echo "LTFHC EMR Maintenance program starting."
 echo ""
 echo "--------------------------------------------------------------------"
-#MAINTENANCE_HOME="."
-MAINTENANCE_HOME=~/ltfhc-maintenance-install
+MAINTENANCE_HOME="."
+#MAINTENANCE_HOME=~/ltfhc-maintenance-install
 cd $MAINTENANCE_HOME
 if [ ! -e $MAINTENANCE_HOME/kansorc ]; then
   echo "--------------------------------------------------------------------"

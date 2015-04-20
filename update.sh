@@ -13,6 +13,7 @@ echo ""
 cd ~
 if [ ! -e ltfhc-maintenance-install ]; then
    echo "Error please run the installation script before attempting to update.";
+   read -n 1 -s
    exit 1;
 else
    cd ~/ltfhc-maintenance-install;
@@ -20,6 +21,7 @@ else
 fi
 if [ ! -e ltfhc-maintenance ]; then
    echo "Error please run the installation script before attempting to update.";
+   read -n 1 -s
    exit 1;
 else
    cd ~/ltfhc-maintenance-install/ltfhc-maintenance;
@@ -27,6 +29,7 @@ else
 fi
 if [ ! -e ltfhc-config ]; then
    echo "Error please run the installation script before attempting to update.";
+   read -n 1 -s
    exit 1;
 else
    cd ~/ltfhc-maintenance-install/ltfhc-config
@@ -34,6 +37,7 @@ else
 fi
 if [ ! -e ltfhc-next ]; then
    echo "Error please run the installation script before attempting to update.";
+   read -n 1 -s
    exit 1;
 else
    cd ~/ltfhc-maintenance-install/ltfhc-next
