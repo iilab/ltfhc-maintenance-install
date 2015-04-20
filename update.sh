@@ -81,7 +81,7 @@ if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")}
   echo "--------------------------------------------------------------------"
   echo ""
   cd ~/ltfhc-maintenance-install
-  if [ "$MAINTENANCE_HOME" = "" ]; then
+  if [ $NEW_UPDATE ]; then
     echo ""
     echo "--------------------------------------------------------------------"
     echo "Updated, reloading virtual machine."
