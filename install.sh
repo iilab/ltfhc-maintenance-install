@@ -58,7 +58,7 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-next
    git pull;
 fi
-cp ~/ltfhc-maintenance-install/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
+cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
 while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
