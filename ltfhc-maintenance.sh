@@ -9,7 +9,7 @@ if [ "$MAINTENANCE_HOME" = "" ]; then
   MAINTENANCE_HOME=~/ltfhc-maintenance-install;
 fi
 cd $MAINTENANCE_HOME
-if [ ! -e ~/Documents/kansorc ]; then
+if [ ! -e ~/Documents/kansorc.txt ]; then
   echo "--------------------------------------------------------------------"
   echo ""
   echo "ERROR: kansorc file missing in the Documents folder."
