@@ -36,6 +36,7 @@ if [ ! -e ~/Documents/hosts_lan.txt ] && [ ! -e ~/Documents/hosts_wifi.txt ]; th
 fi
 cp ~/Documents/hosts_wifi.txt $MAINTENANCE_HOME/hosts_wifi
 cp ~/Documents/hosts_lan.txt $MAINTENANCE_HOME/hosts_lan
+export TERM=windows-ansi
 vagrant up
 vagrant ssh --command "DEBUG=$DEBUG node '/vagrant/ltfhc-maintenance/index.js'" 
 echo "--------------------------------------------------------------------"
