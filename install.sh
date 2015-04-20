@@ -117,7 +117,7 @@ echo "--------------------------------------------------------------------"
 echo ""
 cd ~/ltfhc-maintenance-install
 vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
-vagrant up
+vagrant reload
 echo ""
 echo ""
 echo "--------------------------------------------------------------------"

@@ -46,6 +46,56 @@ else
    git pull;
 fi
 cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
+
+while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
+  echo ""
+  echo "--------------------------------------------------------------------"
+  echo "Out of date or missing ltfhc-maintenance.box in Documents folder."
+  echo ""
+  echo "This file is large (>400MB) and will take a long time to transfer,"
+  echo "if you have this file on portable media, please copy it to the"
+  echo "ltfhc-maintenance-install folder and make sure it is named ltfhc-maintenance.box"
+  echo "----------------------------------"
+  echo ""
+  echo "Would you like to download this file?"
+  echo ""
+  read -p "y(es)/n(o)/r(etry)? " -n 1 answer
+  echo ""
+  case $answer in
+    y)
+      curl --progress-bar -o ~/Documents/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
+      continue
+      ;;
+    n)
+      break
+      ;;
+    r) 
+      continue
+      ;;
+  esac
+done
+if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == 8d646c80eb3800a679805a53e301751d ]]; then
+  echo ""
+  echo "--------------------------------------------------------------------"
+  echo "Found uptodate ltfhc-maintenance.box!"
+  echo "--------------------------------------------------------------------"
+  echo ""
+  echo "--------------------------------------------------------------------"
+  echo "Reloading virtual machine."
+  echo "--------------------------------------------------------------------"
+  echo ""
+  cd ~/ltfhc-maintenance-install
+  vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
+  vagrant reload
+else
+  echo ""
+  echo "--------------------------------------------------------------------"
+  echo "Missing or incomplete ltfhc-maintenance.box, please download again."
+  echo "--------------------------------------------------------------------"
+  echo ""
+  read -n 1 -s
+  exit 1
+fi
 echo ""
 echo "--------------------------------------------------------------------"
 echo "Updating desktop shortcut."
