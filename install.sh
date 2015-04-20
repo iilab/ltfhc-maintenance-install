@@ -126,7 +126,7 @@ echo "--------------------------------------------------------------------"
 echo ""
 if [ ! -e ~/Desktop/ltfhc-maintenance.sh ]; then
    ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
-   cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/update.sh
+   cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/ltfhc-update.sh
 else
    rm ~/Desktop/ltfhc-maintenance.sh;
    ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
