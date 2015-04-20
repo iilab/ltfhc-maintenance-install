@@ -11,10 +11,10 @@ echo ""
 echo "--------------------------------------------------------------------"
 echo ""
 cd ~
-if [ ! -e ~/ltfhc-maintenance-install/kansorc.txt ]; then
+if [ ! -e ~/Documents/kansorc.txt ]; then
   echo "--------------------------------------------------------------------"
   echo ""
-  echo "ERROR: kansorc.txt file missing in the ltfhc-maintenance-install directory."
+  echo "ERROR: kansorc.txt file missing in the Documents folder."
   echo ""
   echo "Copy the file and restart this script. Press a key to exit."
   echo ""
@@ -23,10 +23,10 @@ if [ ! -e ~/ltfhc-maintenance-install/kansorc.txt ]; then
   read -n 1 -s
   exit 1
 fi
-if [ ! -e $MAINTENANCE_HOME/hosts_lan.txt ] && [ ! -e $MAINTENANCE_HOME/hosts_wifi.txt ]; then
+if [ ! -e ~/Documents/hosts_lan.txt ] && [ ! -e ~/Documents/hosts_wifi.txt ]; then
   echo "--------------------------------------------------------------------"
   echo ""
-  echo "ERROR: hosts_lan.txt and hosts_wifi.txt files missing in the ltfhc-maintenance-install directory."
+  echo "ERROR: hosts_lan.txt and hosts_wifi.txt files missing in the Documents folder."
   echo ""
   echo "Copy the files and restart this script. Press a key to exit."
   echo ""
@@ -60,10 +60,10 @@ else
    git pull;
 fi
 cp ~/ltfhc-maintenance-install/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
-while [[ `md5sum.exe ~/ltfhc-maintenance-install/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
+while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != 8d646c80eb3800a679805a53e301751d ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
-  echo "Problem with ltfhc-maintenance.box in ltfhc-maintenance-install folder."
+  echo "Problem with ltfhc-maintenance.box in Documents folder."
   echo ""
   echo "This file is large (>400MB) and will take a long time to transfer,"
   echo "if you have this file on portable media, please copy it to the"
@@ -76,7 +76,7 @@ while [[ `md5sum.exe ~/ltfhc-maintenance-install/ltfhc-maintenance.box | awk '{s
   echo ""
   case $answer in
     y)
-      curl --progress-bar -o ~/ltfhc-maintenance-install/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
+      curl --progress-bar -o ~/Documents/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
       continue
       ;;
     n)

@@ -39,7 +39,7 @@ else
    cd ~/ltfhc-maintenance-install/ltfhc-next
    git pull;
 fi
-cp ~/ltfhc-maintenance-install/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
+cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
 echo ""
 echo "--------------------------------------------------------------------"
 echo "Updating desktop shortcut."
