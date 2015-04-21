@@ -17,10 +17,12 @@ if [ ! -e ltfhc-maintenance-install ]; then
    exit 1;
 else
    cd ~/ltfhc-maintenance-install;
-   git pull;
-   if [[ `git ls-files -m` == *"update.sh"* ]]; then
+   git fetch
+   if [[ `git diff-index --name-only origin/master` == *"update.sh"* ]]; then
+     git pull;
      exec ~/ltfhc-maintenance-install/update.sh;
    fi
+   git pull;
 fi
 if [ ! -e ltfhc-maintenance ]; then
    echo "Error please run the installation script before attempting to update.";
