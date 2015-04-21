@@ -92,7 +92,7 @@ if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")}
   echo ""
   vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
   vagrant destroy --force
-  vagrant reload
+  vagrant up
 else
   echo ""
   echo "--------------------------------------------------------------------"
