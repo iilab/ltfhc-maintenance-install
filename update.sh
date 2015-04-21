@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This script is meant to be ran under the Git for Windows bash shell command line.
+# This script is meant to be ran under the Git for Windows bash shell command line
 #
 clear
 echo ""
