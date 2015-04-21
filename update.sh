@@ -18,6 +18,10 @@ if [ ! -e ltfhc-maintenance-install ]; then
 else
    cd ~/ltfhc-maintenance-install;
    git pull;
+   if [[ git ls-files -m == *"update.sh"* ]]
+   then
+     exec ~/ltfhc-maintenance-install/update.sh;
+   fi
 fi
 if [ ! -e ltfhc-maintenance ]; then
    echo "Error please run the installation script before attempting to update.";
@@ -81,16 +85,14 @@ if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")}
   echo "--------------------------------------------------------------------"
   echo ""
   cd ~/ltfhc-maintenance-install
-  if [ $NEW_UPDATE ]; then
-    echo ""
-    echo "--------------------------------------------------------------------"
-    echo "Updated, reloading virtual machine."
-    echo "--------------------------------------------------------------------"
-    echo ""
-    vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
-    vagrant destroy
-    vagrant reload
-  fi
+  echo ""
+  echo "--------------------------------------------------------------------"
+  echo "Updated, reloading virtual machine."
+  echo "--------------------------------------------------------------------"
+  echo ""
+  vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
+  vagrant destroy
+  vagrant reload
 else
   echo ""
   echo "--------------------------------------------------------------------"
