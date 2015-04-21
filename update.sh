@@ -18,8 +18,7 @@ if [ ! -e ltfhc-maintenance-install ]; then
 else
    cd ~/ltfhc-maintenance-install;
    git pull;
-   if [[ git ls-files -m == *"update.sh"* ]]
-   then
+   if [[ `git ls-files -m` == *"update.sh"* ]]; then
      exec ~/ltfhc-maintenance-install/update.sh;
    fi
 fi
@@ -67,7 +66,6 @@ while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," 
   case $answer in
     y)
       curl --progress-bar -o ~/Documents/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
-      NEW_UPDATE=true;
       continue
       ;;
     n)
