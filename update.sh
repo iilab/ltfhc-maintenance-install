@@ -51,7 +51,7 @@ else
    git pull;
 fi
 cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
-while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != af7626270a2968b21a1e4981a19d73b5 ]]; do
+while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != b3b85b61b23733940b7abd9fa52593b0 ]]; do
   echo ""
   echo "--------------------------------------------------------------------"
   echo "Out of date or missing ltfhc-maintenance.box in Documents folder."
@@ -78,7 +78,7 @@ while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," 
       ;;
   esac
 done
-if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == af7626270a2968b21a1e4981a19d73b5 ]]; then
+if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` == b3b85b61b23733940b7abd9fa52593b0 ]]; then
   echo ""
   echo "--------------------------------------------------------------------"
   echo "Found up to date ltfhc-maintenance.box!"

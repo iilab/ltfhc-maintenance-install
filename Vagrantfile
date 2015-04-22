@@ -18,9 +18,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   #Try default network config i.e. host_only NAT.
   #config.vm.network "public_network", ip: VM_PUBLIC_IP, bridge: VM_BRIDGE
-  #config.vm.provider :virtualbox do |vb|
-  #    vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
-  #end
+  config.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--hwvirtex", "off", "--memory", 1024, "--cpus", 1]
+  end
   
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
