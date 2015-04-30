@@ -104,13 +104,18 @@ else
 fi
 echo ""
 echo "--------------------------------------------------------------------"
-echo "Updating desktop shortcut."
+echo "Updating desktop shortcut and configuration files."
 echo "--------------------------------------------------------------------"
 echo ""
 rm ~/Desktop/ltfhc-maintenance.sh;
 ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenance.sh;
 cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/ltfhc-update.sh
 cp ~/ltfhc-maintenance-install/install.sh ~/Desktop/install.sh
+cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
+dos2unix ~/ltfhc-maintenance-install/hosts_wifi.sh
+dos2unix ~/ltfhc-maintenance-install/hosts_lan.sh
+cp ~/Documents/hosts_wifi.txt ~/ltfhc-maintenance-install/hosts_wifi
+cp ~/Documents/hosts_lan.txt ~/ltfhc-maintenance-install/hosts_lan
 echo ""
 echo ""
 echo "--------------------------------------------------------------------"
