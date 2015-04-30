@@ -2,11 +2,6 @@
 clear
 echo "--------------------------------------------------------------------"
 echo ""
-echo "Resize your window now and press any key to start or wait 10 seconds."
-echo ""
-echo "--------------------------------------------------------------------"
-read -n 1 -s -t 10
-echo ""
 echo ""
 echo "LTFHC EMR Maintenance program starting."
 echo ""
