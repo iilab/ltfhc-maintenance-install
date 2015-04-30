@@ -2,13 +2,16 @@
 clear
 echo "--------------------------------------------------------------------"
 echo ""
-echo "LTFHC EMR Maintenance program starting."
-echo ""
-echo ""
 echo "Resize your window now and press any key to start."
 echo ""
 echo "--------------------------------------------------------------------"
 read -n 1 -s
+echo ""
+echo ""
+echo "LTFHC EMR Maintenance program starting."
+echo ""
+echo ""
+echo "--------------------------------------------------------------------"
 if [ "$MAINTENANCE_HOME" = "" ]; then
   MAINTENANCE_HOME=~/ltfhc-maintenance-install;
 fi
