@@ -2,10 +2,10 @@
 clear
 echo "--------------------------------------------------------------------"
 echo ""
-echo "Resize your window now and press any key to start."
+echo "Resize your window now and press any key to start or wait 10 seconds."
 echo ""
 echo "--------------------------------------------------------------------"
-read -n 1 -s
+read -n 1 -s -t 10
 echo ""
 echo ""
 echo "LTFHC EMR Maintenance program starting."
@@ -56,4 +56,11 @@ while [ "$restart" = "r" ]; do
   echo "--------------------------------------------------------------------"
   echo ""
   read -n 1 -s restart
+  echo ""
+  echo ""
+  echo "LTFHC EMR Maintenance program starting."
+  echo ""
+  echo ""
+  echo "--------------------------------------------------------------------"  
 done
+clear
