@@ -3,6 +3,7 @@
 # This script is meant to be ran under the Git for Windows bash shell command line.
 #
 clear
+git config –global core.autocrlf false
 echo ""
 echo "--------------------------------------------------------------------"
 echo ""
@@ -58,8 +59,6 @@ else
    git pull;
 fi
 cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
-dos2unix ~/ltfhc-maintenance-install/hosts_wifi.sh
-dos2unix ~/ltfhc-maintenance-install/hosts_lan.sh
 cp ~/Documents/hosts_wifi.txt ~/ltfhc-maintenance-install/hosts_wifi
 cp ~/Documents/hosts_lan.txt ~/ltfhc-maintenance-install/hosts_lan
 while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")} END{print array[1]}'` != b3b85b61b23733940b7abd9fa52593b0 ]]; do

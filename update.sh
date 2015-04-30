@@ -3,6 +3,7 @@
 # This script is meant to be ran under the Git for Windows bash shell command line
 #
 clear
+git config –global core.autocrlf false
 echo ""
 echo "--------------------------------------------------------------------"
 echo ""
@@ -68,6 +69,7 @@ while [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," 
   case $answer in
     y)
       curl --progress-bar -o ~/Documents/ltfhc-maintenance.box https://iilab.org/tmp/ltfhc-maintenance.box
+      box_updated=true 
       continue
       ;;
     n)
@@ -85,14 +87,16 @@ if [[ `md5sum.exe ~/Documents/ltfhc-maintenance.box | awk '{split($0,array," ")}
   echo "--------------------------------------------------------------------"
   echo ""
   cd ~/ltfhc-maintenance-install
-  echo ""
-  echo "--------------------------------------------------------------------"
-  echo "Updated, reloading virtual machine."
-  echo "--------------------------------------------------------------------"
-  echo ""
-  vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
-  vagrant destroy --force
-  vagrant up
+  if [ "$box_updated" = true ] ; then
+    echo ""
+    echo "--------------------------------------------------------------------"
+    echo "Updated, reloading virtual machine."
+    echo "--------------------------------------------------------------------"
+    echo ""
+    vagrant box add "~/Documents/ltfhc-maintenance.box" --force --name ltfhc-maintenance
+    vagrant destroy --force
+    vagrant up
+  fi
 else
   echo ""
   echo "--------------------------------------------------------------------"
@@ -112,8 +116,6 @@ ln -s ~/ltfhc-maintenance-install/ltfhc-maintenance.sh ~/Desktop/ltfhc-maintenan
 cp ~/ltfhc-maintenance-install/update.sh ~/Desktop/ltfhc-update.sh
 cp ~/ltfhc-maintenance-install/install.sh ~/Desktop/install.sh
 cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
-dos2unix ~/ltfhc-maintenance-install/hosts_wifi.sh
-dos2unix ~/ltfhc-maintenance-install/hosts_lan.sh
 cp ~/Documents/hosts_wifi.txt ~/ltfhc-maintenance-install/hosts_wifi
 cp ~/Documents/hosts_lan.txt ~/ltfhc-maintenance-install/hosts_lan
 echo ""
