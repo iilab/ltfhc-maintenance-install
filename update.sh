@@ -3,7 +3,7 @@
 # This script is meant to be ran under the Git for Windows bash shell command line
 #
 clear
-git config –-system core.autocrlf false
+git config --system core.autocrlf false
 echo ""
 echo "--------------------------------------------------------------------"
 echo ""
