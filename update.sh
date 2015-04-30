@@ -21,6 +21,8 @@ else
    git fetch
    if [[ `git diff-index --name-only origin/master` == *"update.sh"* ]]; then
      git pull;
+     echo "The update script has been updated and will be restarted. Press any key to restart.";
+     read -n 1 -s
      exec ~/ltfhc-maintenance-install/update.sh;
    fi
    git pull;
