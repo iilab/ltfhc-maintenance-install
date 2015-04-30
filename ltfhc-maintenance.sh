@@ -4,7 +4,11 @@ echo "--------------------------------------------------------------------"
 echo ""
 echo "LTFHC EMR Maintenance program starting."
 echo ""
+echo ""
+echo "Resize your window now and press any key to start."
+echo ""
 echo "--------------------------------------------------------------------"
+read -n 1 -s
 if [ "$MAINTENANCE_HOME" = "" ]; then
   MAINTENANCE_HOME=~/ltfhc-maintenance-install;
 fi
@@ -37,13 +41,16 @@ fi
 cp ~/Documents/hosts_wifi.txt $MAINTENANCE_HOME/hosts_wifi
 cp ~/Documents/hosts_lan.txt $MAINTENANCE_HOME/hosts_lan
 vagrant up
-vagrant ssh --command "DEBUG=$DEBUG TERM=windows-ansi node '/vagrant/ltfhc-maintenance/index.js'" 
-echo "--------------------------------------------------------------------"
-echo ""
-echo "LTFHC EMR Maintenance program exited."
-echo ""
-echo "Press a key to exit."
-echo ""
-echo "--------------------------------------------------------------------"
-echo ""
-read -n 1 -s
+restart=r
+while [ "$restart" = "r" ]; do
+  vagrant ssh --command "DEBUG=$DEBUG TERM=windows-ansi node '/vagrant/ltfhc-maintenance/index.js'" 
+  echo "--------------------------------------------------------------------"
+  echo ""
+  echo "LTFHC EMR Maintenance program exited."
+  echo ""
+  echo "Press 'r' to restart or any other key to exit."
+  echo ""
+  echo "--------------------------------------------------------------------"
+  echo ""
+  read -n 1 -s restart
+done
