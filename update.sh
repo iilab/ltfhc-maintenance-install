@@ -18,7 +18,6 @@ if [ ! -e ltfhc-maintenance-install ]; then
    exit 1;
 else
    cd ~/ltfhc-maintenance-install;
-   git checkout -- update.sh
    git fetch
    if [[ `git diff-index --name-only origin/master` == *"update.sh"* ]]; then
      git pull;
