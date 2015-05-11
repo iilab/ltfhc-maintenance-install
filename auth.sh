@@ -1,0 +1,2 @@
+curl -k -HContent-Type:application/json -vXPUT https://$AUTH@$ANSIBLE_SSH_HOST/_users/org.couchdb.user:lastmile --data-binary '{"_id": "org.couchdb.user:lastmile","name": "lastmile","roles": ["admin", "clinic-manager", "distric_admin", "kujua_user", "data_entry", "clinic_admin", "distric_admin"],"type": "user","password": "lastmile123"}'
+curl -k -HContent-Type:application/json -vXPUT https://$AUTH@$ANSIBLE_SSH_HOST/_config/admins/lastmile --data-binary '"lastmile123"'
