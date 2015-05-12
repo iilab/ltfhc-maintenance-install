@@ -26,6 +26,7 @@ else
      read -n 1 -s
      exec ~/ltfhc-maintenance-install/update.sh;
    fi
+   git stash;
    git pull;
 fi
 if [ ! -e ltfhc-maintenance ]; then
@@ -34,6 +35,7 @@ if [ ! -e ltfhc-maintenance ]; then
    exit 1;
 else
    cd ~/ltfhc-maintenance-install/ltfhc-maintenance;
+   git stash;
    git pull;
 fi
 cd ~/ltfhc-maintenance-install;
@@ -42,7 +44,8 @@ if [ ! -e ltfhc-config ]; then
    read -n 1 -s
    exit 1;
 else
-   cd ~/ltfhc-maintenance-install/ltfhc-config
+   cd ~/ltfhc-maintenance-install/ltfhc-config;
+   git stash;
    git pull;
 fi
 cd ~/ltfhc-maintenance-install;   
@@ -52,6 +55,7 @@ if [ ! -e ltfhc-next ]; then
    exit 1;
 else
    cd ~/ltfhc-maintenance-install/ltfhc-next
+   git stash;
    git pull;
 fi
 cp ~/Documents/kansorc.txt ~/ltfhc-maintenance-install/ltfhc-next/.kansorc
